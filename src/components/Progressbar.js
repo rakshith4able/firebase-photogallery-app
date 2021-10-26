@@ -2,14 +2,7 @@ import React, { useEffect } from "react";
 import useStorage from "../hooks/useStorage";
 import { mergeClasses, withStyles } from "@mui/styles";
 import { animate, motion } from "framer-motion";
-
-const styles = {
-    ProgressBar: {
-        height: '5px',
-        background: 'blue',
-        marginTop: '20px',
-    }
-};
+import styles from '../styles/ProgressbarStyles';
 
 function Progressbar({ file, setFile, classes }) {
 

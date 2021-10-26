@@ -1,42 +1,7 @@
 import React, { useState } from "react";
 import Progressbar from "./Progressbar";
 import { withStyles } from "@mui/styles";
-
-const styles = {
-    Form: {
-        margin: ' 30px auto 10px',
-        textAlign: 'center',
-        '& label': {
-            display: 'block',
-            width: ' 30px',
-            height: ' 30px',
-            border: '1px solid blue',
-            borderRadius: '50 %',
-            margin: '10px auto',
-            lineHeight: '30px',
-            color: 'blue',
-            fontWeight: 'bold',
-            fontSize: '24px',
-            '&  input': {
-                height: 0,
-                width: 0,
-                opacity: 0,
-            },
-            '&: hover': {
-                background: 'blue',
-                color: 'white',
-            }
-
-        },
-    },
-    Output: {
-        height: '60px',
-        fontSize: ' 0.8rem'
-    },
-    Error: {
-        color: ' red',
-    }
-}
+import styles from "../styles/UploadFormStyles";
 function UploadForm({ classes }) {
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
