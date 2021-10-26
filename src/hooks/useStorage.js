@@ -6,20 +6,23 @@ function useStorage(file) {
     const [progress, setProgress] = useState(0);
     const [error, setError] = useState(null);
     const [url, setUrl] = useState(null);
-    let type;
-    getMetadata(file)
-        .then((metadata) => {
-            type = metadata;
-        })
-        .catch((error) => {
-            // Uh-oh, an error occurred!
-        });
-    const metadata = {
-        contentType: type
-    };
+
+
 
     useEffect(() => {
         const storageRef = ref(projectStorage, file.name);
+        let type;
+        getMetadata(file)
+            .then((metadata) => {
+                type = metadata;
+            })
+            .catch((error) => {
+                // Uh-oh, an error occurred!
+            });
+        const metadata = {
+            contentType: type
+        };
+
         const collectionRef = doc(collection(projectFirestore, "images"));;
         const uploadTask = uploadBytesResumable(storageRef, file, metadata);
         uploadTask.on('state_changed',
