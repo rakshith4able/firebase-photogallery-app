@@ -1,7 +1,17 @@
 import React, { useEffect } from "react";
 import useStorage from "../hooks/useStorage";
+import { mergeClasses, withStyles } from "@mui/styles";
+import { animate, motion } from "framer-motion";
 
-function Progressbar({ file, setFile }) {
+const styles = {
+    ProgressBar: {
+        height: '5px',
+        background: 'blue',
+        marginTop: '20px',
+    }
+};
+
+function Progressbar({ file, setFile, classes }) {
 
     const { url, progress } = useStorage(file);
 
@@ -9,9 +19,9 @@ function Progressbar({ file, setFile }) {
         if (url) { setFile(null); }
     }, [url])
 
-    return (<div className='progress-bar' style={{ width: progress + '%', height: '5px', background: 'blue', marginTop: '20px' }}>
-    </div>);
+    return (<motion.div className={classes.ProgressBar} initial={{ width: 0 }} animate={{ width: progress + '%' }}>
+    </motion.div>);
 }
 
 
-export default Progressbar;
+export default withStyles(styles)(Progressbar);
