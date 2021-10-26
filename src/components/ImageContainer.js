@@ -27,7 +27,7 @@ const styles = {
     },
 };
 
-function ImageContainer({ classes }) {
+function ImageContainer({ classes, setSelectedImage }) {
     const { docs } = useFirestore('images');
     console.log(docs);
     return (<div className={classes.ImageContainer}>
@@ -36,7 +36,7 @@ function ImageContainer({ classes }) {
             //     <img src={doc.url} alt='uplodaded pic'></img>
             // </div>
 
-            <Image src={doc.url} key={doc.id} />
+            <Image src={doc.url} setSelectedImage={setSelectedImage} key={doc.id} />
         ))}
     </div>);
 }

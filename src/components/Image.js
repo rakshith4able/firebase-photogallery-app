@@ -5,25 +5,27 @@ const styles = {
 
     Image: {
         overflow: 'hidden',
-        height: '0',
+        height: 0,
         padding: '50% 0',
         position: 'relative',
-        opacity: '0.8',
+        opacity: 0.8,
         '& img': {
             minWidth: '100%',
             minHeight: '100%',
             maxWidth: '150%',
             position: 'absolute',
-            top: '0',
-            left: '0',
+            top: 0,
+            left: 0,
         }
 
     }
 };
 
-function Image({ classes, src }) {
+function Image({ classes, src, setSelectedImage }) {
     return (
-        <div className={classes.Image} >
+        <div className={classes.Image} onClick={() => {
+            setSelectedImage(src);
+        }} >
             <img src={src} alt='uplodaded pic' ></img>
         </div >
     );
