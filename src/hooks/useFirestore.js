@@ -5,7 +5,7 @@ import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
 function useFirestore(collectionName) {
     const [docs, setDocs] = useState([]);
 
-    let getDocuments = async () => {
+    useEffect(() => {
         const q = query(collection(projectFirestore, collectionName), orderBy("createdAt", "desc"));
 
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -15,18 +15,7 @@ function useFirestore(collectionName) {
             });
             setDocs(documents);
         });
-
-
-
-
-
-    };
-
-    useEffect(() => {
-        console.log('useEffect in useFireStore...');
-        let unsub = getDocuments();
-
-        return () => unsub();
+        return () => unsubscribe();
     }, [collectionName]);
 
     return { docs };

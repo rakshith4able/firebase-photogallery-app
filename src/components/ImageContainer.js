@@ -1,5 +1,6 @@
 import React from 'react';
 import useFirestore from '../hooks/useFirestore';
+import Image from './Image';
 import { withStyles } from '@mui/styles';
 
 const styles = {
@@ -31,9 +32,11 @@ function ImageContainer({ classes }) {
     console.log(docs);
     return (<div className={classes.ImageContainer}>
         {docs && docs.map(doc => (
-            <div className={classes.ImageWrap} key={doc.id}>
-                <img src={doc.url} alt='uplodaded pic'></img>
-            </div>
+            // <div className={classes.ImageWrap} key={doc.id}>
+            //     <img src={doc.url} alt='uplodaded pic'></img>
+            // </div>
+
+            <Image src={doc.url} key={doc.id} />
         ))}
     </div>);
 }
