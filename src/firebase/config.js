@@ -7,13 +7,17 @@ import { getFirestore, serverTimestamp } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBysyK12fCQrXVyGQ-vm0go9NKFGLwD4NA",
-    authDomain: "fire-gallery-48321.firebaseapp.com",
-    projectId: "fire-gallery-48321",
-    storageBucket: "fire-gallery-48321.appspot.com",
-    messagingSenderId: "610141016239",
-    appId: "1:610141016239:web:870ea728b1de3d59da445a"
-};
+    apiKey: "AIzaSyBLNYmY7TcRq2iBb4vs_Rl2A80GdUU1SlY",
+    authDomain: "fire-gallery-85c6d.firebaseapp.com",
+    projectId: "fire-gallery-85c6d",
+    storageBucket: "fire-gallery-85c6d.appspot.com",
+    messagingSenderId: "352647761171",
+    appId: "1:352647761171:web:6b8410b661a0bdb43f5ee6",
+    measurementId: "G-ZMB5R4HF6S"
+  };
+  
+
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
